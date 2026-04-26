@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Project</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <div>
+        <h1>Dashboard Project</h1>
+        <p>Framework para tus cuatro mini apps: reloj, clima, generador y enlaces.</p>
+      </div>
+      <nav class="main-nav">
+        <a href="#clock-section">Reloj</a>
+        <a href="#weather-section">Clima</a>
+        <a href="#password-section">Contraseña</a>
+        <a href="#links-section">Links</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section id="clock-section" class="card">
+        <h2>Reloj digital</h2>
+        <div class="clock-display">
+          <span id="clock">00:00:00</span>
+          <span id="date">DD/MM/AAAA</span>
+        </div>
+        <p id="greeting">Cargando mensaje...</p>
+      </section>
+
+      <section id="weather-section" class="card">
+        <h2>Estación meteorológica</h2>
+        <p>Aquí irá la información del clima con fetch a weatherapi.</p>
+      </section>
+
+      <section id="password-section" class="card">
+        <h2>Generador de contraseñas</h2>
+        <p>Aquí irá la interfaz para seleccionar la longitud y generar la contraseña.</p>
+      </section>
+
+      <section id="links-section" class="card">
+        <h2>Listado de links</h2>
+        <p>Aquí irá el form para guardar enlaces en localStorage.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
