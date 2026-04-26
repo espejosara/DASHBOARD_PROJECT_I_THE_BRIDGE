@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listado de links | Dashboard</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <div>
+        <h1>Listado de links</h1>
+        <p>Guarda tus enlaces favoritos y recupéralos automáticamente.</p>
+      </div>
+      <nav class="page-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="clock.html">Reloj</a>
+        <a href="weather.html">Clima</a>
+        <a href="password.html">Contraseña</a>
+      </nav>
+    </header>
+
+    <main class="content single-card links-page">
+      <section class="card">
+        <form id="link-form" class="form-column">
+          <label>
+            Título
+            <input id="link-title" type="text" placeholder="Título del enlace" required />
+          </label>
+          <label>
+            URL
+            <input id="link-url" type="url" placeholder="https://ejemplo.com" required />
+          </label>
+          <button id="add-link" type="submit">Añadir link</button>
+        </form>
+
+        <div class="links-list">
+          <p id="empty-state" class="muted">No hay enlaces guardados todavía.</p>
+          <ul id="links-list"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/background.js" defer></script>
+  <script src="js/links.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reloj digital | Dashboard</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <div>
+        <h1>Reloj digital</h1>
+        <p>Actualiza cada segundo y muestra un mensaje según la hora.</p>
+      </div>
+      <nav class="page-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="weather.html">Clima</a>
+        <a href="password.html">Contraseña</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </header>
+
+    <main class="content single-card">
+      <section class="card clock-card">
+        <div class="clock-display">
+          <span id="clock">00:00:00</span>
+          <span id="date">DD/MM/AAAA</span>
+        </div>
+        <p id="greeting">Cargando mensaje...</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/background.js" defer></script>
+  <script src="js/clock.js" defer></script>
+</body>
+</html>

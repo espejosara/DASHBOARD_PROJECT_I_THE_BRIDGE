@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clima | Dashboard</title>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="page-header">
+      <div>
+        <h1>Estación meteorológica</h1>
+        <p>Busca una ciudad y obtén el clima actual y las próximas horas.</p>
+      </div>
+      <nav class="page-nav">
+        <a href="index.html">Dashboard</a>
+        <a href="clock.html">Reloj</a>
+        <a href="password.html">Contraseña</a>
+        <a href="links.html">Links</a>
+      </nav>
+    </header>
+
+    <main class="content single-card weather-page">
+      <section class="card weather-card">
+        <form id="weather-form" class="form-row">
+          <label>
+            Ciudad
+            <input id="city-input" type="text" value="Madrid" placeholder="Escribe una ciudad" />
+          </label>
+          <button id="search-weather" type="submit">Buscar clima</button>
+        </form>
+
+        <div id="weather-output" class="weather-output">
+          <p class="muted">Introduce una ciudad y pulsa buscar.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/background.js" defer></script>
+  <script src="js/weather.js" defer></script>
+</body>
+</html>

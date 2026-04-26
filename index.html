@@ -12,43 +12,43 @@
     <header class="page-header">
       <div>
         <h1>Dashboard Project</h1>
-        <p>Framework para tus cuatro mini apps: reloj, clima, generador y enlaces.</p>
+        <p>Unifica las cuatro mini apps y navega entre ellas.</p>
       </div>
       <nav class="main-nav">
-        <a href="#clock-section">Reloj</a>
-        <a href="#weather-section">Clima</a>
-        <a href="#password-section">Contraseña</a>
-        <a href="#links-section">Links</a>
+        <a href="clock.html">Reloj</a>
+        <a href="weather.html">Clima</a>
+        <a href="password.html">Contraseña</a>
+        <a href="links.html">Links</a>
       </nav>
     </header>
 
-    <main class="content">
-      <section id="clock-section" class="card">
+    <main class="content dashboard-grid">
+      <section class="card">
         <h2>Reloj digital</h2>
-        <div class="clock-display">
-          <span id="clock">00:00:00</span>
-          <span id="date">DD/MM/AAAA</span>
-        </div>
-        <p id="greeting">Cargando mensaje...</p>
+        <p>Hora real en formato 24h, fecha y mensaje según la parte del día.</p>
+        <a class="page-link" href="clock.html">Ir al reloj</a>
       </section>
 
-      <section id="weather-section" class="card">
+      <section class="card">
         <h2>Estación meteorológica</h2>
-        <p>Aquí irá la información del clima con fetch a weatherapi.</p>
+        <p>Busca el clima de una ciudad con WeatherAPI.</p>
+        <a class="page-link" href="weather.html">Ir al clima</a>
       </section>
 
-      <section id="password-section" class="card">
+      <section class="card">
         <h2>Generador de contraseñas</h2>
-        <p>Aquí irá la interfaz para seleccionar la longitud y generar la contraseña.</p>
+        <p>Crea contraseñas seguras con letras, números y símbolos.</p>
+        <a class="page-link" href="password.html">Ir al generador</a>
       </section>
 
-      <section id="links-section" class="card">
+      <section class="card">
         <h2>Listado de links</h2>
-        <p>Aquí irá el form para guardar enlaces en localStorage.</p>
+        <p>Guarda enlaces útiles usando localStorage.</p>
+        <a class="page-link" href="links.html">Ir a los links</a>
       </section>
     </main>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/background.js" defer></script>
 </body>
 </html>
