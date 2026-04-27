@@ -7,13 +7,13 @@ function addLeadingZero(value) {
 }
 
 function getGreeting(hour) {
-  if (hour >= 0 && hour <= 7) return 'Descansa como Totoro al amanecer, que el bosque te cuide.';
-  if (hour <= 12) return 'Buenos días: despierta con la magia de Chihiro en el tren del amanecer.';
-  if (hour <= 14) return 'Es hora de comer como en el banquet del espíritu del baño, con calma y energía.';
-  if (hour <= 16) return 'Sigue adelante con la fuerza de Ponyo y la brisa del mar.';
-  if (hour <= 18) return 'Buenas tardes, el viento de Howl te acompaña en este último empujón.';
-  if (hour <= 22) return 'La noche llega como en el castillo ambulante; piensa en parar pronto.';
-  return 'Buenas noches, deja que el bosque y los espíritus te guíen hacia el descanso.';
+  if (hour >= 0 && hour <= 7) return 'Sistema en modo reposo. Es hora de apagar el monitor y recargar baterías.';
+  if (hour <= 12) return 'Buenos días. Café cargado, entorno listo... ¡A picar código!';
+  if (hour <= 14) return 'Sigue así, pero no olvides hacer un commit y salir a por comida.';
+  if (hour <= 16) return 'Esperamos que el almuerzo no te haya dado sueño. ¡A por el siguiente sprint!';
+  if (hour <= 18) return 'Buenas tardes. Últimos ajustes antes del cierre. ¡Cero bugs hoy!';
+  if (hour <= 22) return 'Esto ya son horas extras. Cuidado con el código espagueti, mejor ir parando.';
+  return 'Buenas noches. El sistema necesita un reboot. Mañana será otro gran despliegue.';
 }
 
 function updateClock() {
