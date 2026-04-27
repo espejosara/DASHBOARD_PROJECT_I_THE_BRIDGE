@@ -1,35 +1,35 @@
 :root {
-  --body-bg: #0f172a;
+  --body-bg: #0f2d2f;
   --shell-bg: rgba(15, 23, 42, 0.84);
   --surface: rgba(15, 23, 42, 0.95);
   --surface-strong: rgba(255, 255, 255, 0.08);
   --border-color: rgba(255, 255, 255, 0.07);
   --text: #f8fafc;
-  --muted: #cbd5e1;
-  --accent: #4f46e5;
-  --button-bg: rgba(255, 255, 255, 0.1);
+  --muted: #bfd2cf;
+  --accent: #7dc4b8;
+  --button-bg: rgba(255, 255, 255, 0.12);
   --button-text: #f8fafc;
   --input-bg: rgba(15, 23, 42, 0.9);
-  --card-bg: rgba(15, 23, 42, 0.95);
+  --card-bg: rgba(15, 23, 42, 0.92);
   --link-bg: rgba(255, 255, 255, 0.1);
-  --link-hover-bg: rgba(79, 70, 229, 0.95);
+  --link-hover-bg: rgba(125, 196, 184, 0.95);
 }
 
 body[data-theme='light'] {
-  --body-bg: #eef2ff;
-  --shell-bg: rgba(255, 255, 255, 0.92);
-  --surface: rgba(255, 255, 255, 0.95);
+  --body-bg: #f4efe6;
+  --shell-bg: rgba(255, 255, 255, 0.98);
+  --surface: rgba(255, 255, 255, 0.98);
   --surface-strong: rgba(15, 23, 42, 0.06);
   --border-color: rgba(15, 23, 42, 0.08);
-  --text: #0f172a;
-  --muted: #475569;
-  --accent: #4f46e5;
-  --button-bg: rgba(15, 23, 42, 0.12);
-  --button-text: #0f172a;
+  --text: #1d3938;
+  --muted: #62706d;
+  --accent: #7dc4b8;
+  --button-bg: rgba(29, 57, 56, 0.12);
+  --button-text: #1d3938;
   --input-bg: rgba(255, 255, 255, 0.92);
-  --card-bg: rgba(255, 255, 255, 0.92);
-  --link-bg: rgba(15, 23, 42, 0.08);
-  --link-hover-bg: rgba(79, 70, 229, 0.95);
+  --card-bg: rgba(255, 255, 255, 0.96);
+  --link-bg: rgba(29, 57, 56, 0.08);
+  --link-hover-bg: rgba(125, 196, 184, 0.95);
 }
 
 body {
@@ -76,16 +76,30 @@ body {
   gap: 12px;
 }
 
-.main-nav a {
+.main-nav a,
+.page-nav a,
+.page-link,
+.theme-toggle {
   padding: 12px 18px;
   border-radius: 999px;
   background: var(--link-bg);
   color: var(--button-text);
-  transition: background 0.2s ease;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
 }
 
-.main-nav a:hover {
+.main-nav a:hover,
+.page-nav a:hover,
+.page-link:hover,
+.theme-toggle:hover {
   background: var(--link-hover-bg);
+  transform: translateY(-1px);
+}
+
+.theme-toggle {
+  cursor: pointer;
+  margin-top: 12px;
 }
 
 .content {
@@ -208,7 +222,7 @@ button {
 }
 
 button:hover {
-  background: #6366f1;
+  background: #4c9f96;
   transform: translateY(-1px);
 }
 
