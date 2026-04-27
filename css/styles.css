@@ -166,15 +166,36 @@ body {
   letter-spacing: 0.04em;
 }
 
+/* El contenedor gris de fondo */
+.progress-container {
+  width: 100%;
+  height: 8px; /* Un pelín más gruesa para que se vea bien */
+  background-color: var(--surface-strong); /* Usamos tu variable de contraste */
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 1px solid var(--border-color); /* Le damos un borde finito */
+  overflow: hidden;
+}
+
+/* La parte de color que se mueve */
+#day-progress-bar {
+  height: 100%;
+  width: 0%; 
+  background-color: var(--accent); /* Usamos tu color verde agua */
+  box-shadow: 0 0 12px var(--accent); /* Un brillo neón */
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Movimiento más fluido */
+}
+
+/* Ajuste para que los textos del reloj se lean bien en ambos modos */
 #date {
-  color: #cbd5e1;
-  font-size: 1rem;
+  color: var(--muted); /* En lugar de un color fijo como #cbd5e1 */
 }
 
 #greeting {
-  color: #dbeafe;
+  color: var(--text); /* En lugar de #dbeafe */
+  margin-top: 15px;
+  font-weight: 500;
 }
-
 .page-nav,
 .main-nav {
   display: flex;
