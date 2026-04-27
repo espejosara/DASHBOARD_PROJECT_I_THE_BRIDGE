@@ -1,4 +1,4 @@
-// Fondos inspirados en la estética de Studio Ghibli: bosques, agua y caminos de novela.
+// Fotos
 const backgrounds = [
   'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1500&q=80',
@@ -13,13 +13,20 @@ const backgrounds = [
 ];
 
 function setRandomBackground() {
+  // 1. Elegimos una imagen al azar de TU LISTA
   const index = Math.floor(Math.random() * backgrounds.length);
-  const isLight = document.body.dataset.theme === 'light';
-  const overlayColor = isLight ? 'rgba(255,255,255,0.32)' : 'rgba(15,23,42,0.75)';
-  document.body.style.backgroundImage = `linear-gradient(${overlayColor}, ${overlayColor}), url('${backgrounds[index]}')`;
-  document.body.style.backgroundSize = 'cover';
-  document.body.style.backgroundPosition = 'center';
+  const nextUrl = backgrounds[index];
+
+  // 2. Técnica de precarga
+  const imgPreloader = new Image();
+  imgPreloader.src = nextUrl;
+
+  imgPreloader.onload = () => {
+    // 3. Aplicamos la imagen a la variable CSS del body
+    document.body.style.setProperty('--bg-image', `url('${nextUrl}')`);
+  };
 }
+
 
 const themeStorageKey = 'dashboardTheme';
 

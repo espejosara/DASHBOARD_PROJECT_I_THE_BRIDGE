@@ -32,6 +32,16 @@ body[data-theme='light'] {
   --link-hover-bg: rgba(125, 196, 184, 0.95);
 }
 
+body[data-theme='light'] {
+  /* ... tus otras variables (--body-bg, --text, etc.) ... */
+  --overlay-color: rgba(255, 255, 255, 0.32); 
+}
+
+body[data-theme='dark'] {
+  /* ... tus otras variables ... */
+  --overlay-color: rgba(15, 23, 42, 0.75); 
+}
+
 body {
   min-height: 100vh;
   background-color: var(--body-bg);
@@ -40,6 +50,29 @@ body {
   justify-content: center;
   align-items: center;
   padding: 24px;
+  --bg-image: none; 
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Valor por defecto */
+
+  background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  transition: background-image 1s ease-in-out, background-color 0.3s ease;
+}
+
+
+body {
+  /* Todo el "estilo" se queda aquí */
+  background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  /* La transición suave la controla el CSS */
+  transition: background-image 1s ease-in-out;
 }
 
 .page-shell {
