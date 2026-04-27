@@ -18,9 +18,34 @@ function setRandomBackground() {
   document.body.style.backgroundPosition = 'center';
 }
 
+const themeStorageKey = 'dashboardTheme';
+
+function setTheme(theme) {
+  document.body.dataset.theme = theme;
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.textContent = theme === 'dark' ? 'Modo claro' : 'Modo oscuro';
+  }
+  localStorage.setItem(themeStorageKey, theme);
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem(themeStorageKey) || 'dark';
+  setTheme(savedTheme);
+
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(nextTheme);
+    });
+  }
+}
+
 function initBackground() {
   setRandomBackground();
   setInterval(setRandomBackground, 15000);
+  initTheme();
 }
 
 if (document.readyState === 'loading') {
