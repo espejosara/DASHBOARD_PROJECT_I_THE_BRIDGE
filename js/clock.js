@@ -7,13 +7,13 @@ function addLeadingZero(value) {
 }
 
 function getGreeting(hour) {
-  if (hour >= 0 && hour <= 7) return 'Es hora de descansar. Apaga y sigue mañana.';
-  if (hour <= 12) return 'Buenos días, desayuna fuerte y a darle al código.';
-  if (hour <= 14) return 'Echa un rato más pero no olvides comer.';
-  if (hour <= 16) return 'Espero que hayas comido.';
-  if (hour <= 18) return 'Buenas tardes, el último empujón.';
-  if (hour <= 22) return 'Esto ya son horas extras, ... piensa en parar pronto.';
-  return 'Buenas noches, es hora de pensar en parar y descansar.';
+  if (hour >= 0 && hour <= 7) return 'Descansa como Totoro al amanecer, que el bosque te cuide.';
+  if (hour <= 12) return 'Buenos días: despierta con la magia de Chihiro en el tren del amanecer.';
+  if (hour <= 14) return 'Es hora de comer como en el banquet del espíritu del baño, con calma y energía.';
+  if (hour <= 16) return 'Sigue adelante con la fuerza de Ponyo y la brisa del mar.';
+  if (hour <= 18) return 'Buenas tardes, el viento de Howl te acompaña en este último empujón.';
+  if (hour <= 22) return 'La noche llega como en el castillo ambulante; piensa en parar pronto.';
+  return 'Buenas noches, deja que el bosque y los espíritus te guíen hacia el descanso.';
 }
 
 function updateClock() {
