@@ -24,32 +24,67 @@
     </header>
 
     <main class="content dashboard-grid">
-      <section class="card">
+      <section class="card clock-card">
         <h2>Reloj digital</h2>
-        <p>Hora real en formato 24h, fecha y mensaje según la parte del día.</p>
+        <div class="clock-display" style="margin: 15px 0;">
+          <span id="clock">00:00:00</span>
+          <span id="date">DD/MM/AAAA</span>
+          <div class="progress-container">
+            <div id="day-progress-bar"></div>
+          </div>
+        </div>
+        <p id="greeting" style="margin-bottom: 15px;">Cargando mensaje...</p>
         <a class="page-link" href="clock.html">Ir al reloj</a>
       </section>
 
-      <section class="card">
+      <section class="card weather-card">
         <h2>Estación meteorológica</h2>
-        <p>Busca el clima de una ciudad con WeatherAPI.</p>
+        <form id="weather-form" class="form-row" style="margin-bottom: 15px;">
+          <label>Ciudad
+            <input id="city-input" type="text" value="Madrid" placeholder="Escribe ciudad" />
+          </label>
+          <button id="search-weather" type="submit">Buscar</button>
+        </form>
+        <div id="weather-output" class="weather-output" style="margin-bottom: 15px;">
+          <p class="muted">Cargando clima...</p>
+        </div>
         <a class="page-link" href="weather.html">Ir al clima</a>
       </section>
 
       <section class="card">
         <h2>Generador de contraseñas</h2>
-        <p>Crea contraseñas seguras con letras, números y símbolos.</p>
+        <div class="form-row" style="margin-bottom: 15px;">
+          <label>Longitud
+            <input id="password-length" type="number" min="12" max="50" value="16" />
+          </label>
+          <button id="generate-password" type="button">Generar</button>
+        </div>
+        <div class="password-result" style="margin-bottom: 15px;">
+          <output id="password-result">Haz clic en generar.</output>
+        </div>
         <a class="page-link" href="password.html">Ir al generador</a>
       </section>
 
       <section class="card">
         <h2>Listado de links</h2>
-        <p>Guarda enlaces útiles usando localStorage.</p>
+        <form id="link-form" class="form-column" style="margin-bottom: 15px;">
+          <input id="link-title" type="text" placeholder="Título del enlace" required />
+          <input id="link-url" type="url" placeholder="https://ejemplo.com" required />
+          <button id="add-link" type="submit">Añadir link</button>
+        </form>
+        <div class="links-list" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto;">
+          <p id="empty-state" class="muted">No hay enlaces guardados todavía.</p>
+          <ul id="links-list"></ul>
+        </div>
         <a class="page-link" href="links.html">Ir a los links</a>
       </section>
     </main>
   </div>
 
   <script src="js/background.js" defer></script>
+  <script src="js/clock.js" defer></script>
+  <script src="js/weather.js" defer></script>
+  <script src="js/password.js" defer></script>
+  <script src="js/links.js" defer></script>
 </body>
 </html>
