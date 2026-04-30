@@ -178,30 +178,6 @@ body {
   margin-top: 15px;
   font-weight: 500;
 }
-.page-nav,
-.main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.page-nav a,
-.main-nav a,
-.page-link {
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #f8fafc;
-  text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.page-nav a:hover,
-.main-nav a:hover,
-.page-link:hover {
-  background: rgba(79, 70, 229, 0.95);
-  transform: translateY(-1px);
-}
 
 .dashboard-grid {
   display: grid;
