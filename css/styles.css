@@ -15,7 +15,7 @@
   --link-hover-bg: #4fb383;
   --link-hover-text: #05140e;
   --overlay-color: rgba(11, 28, 22, 0.75);
-  --theme-icon-color: #fbbf24; /* Amarillo brillante para el sol/luna en modo oscuro */
+  --theme-icon-color: #fecaca; /* Color rosita suave para el modo oscuro */
 }
 
 body[data-theme='light'] {
@@ -35,7 +35,7 @@ body[data-theme='light'] {
   --link-hover-bg: #2e6648;
   --link-hover-text: #ffffff;
   --overlay-color: rgba(240, 245, 242, 0.35);
-  --theme-icon-color: #d97706; /* Dorado/ámbar más oscuro para destacar en modo claro */
+  --theme-icon-color: #f87171; /* Rosita un poco más oscuro para contrastar en modo claro */
 }
 
 body {
