@@ -6,6 +6,7 @@
   <title>Listado de links | Dashboard</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <div class="page-shell">
@@ -15,12 +16,12 @@
         <p>Guarda tus enlaces favoritos y recupéralos automáticamente.</p>
       </div>
       <nav class="page-nav">
-        <a href="index.html">Dashboard</a>
-        <a href="clock.html">Reloj</a>
-        <a href="weather.html">Clima</a>
-        <a href="password.html">Contraseña</a>
+        <a href="index.html" title="Dashboard"><i class="fa-solid fa-house"></i></a>
+        <a href="clock.html" title="Reloj"><i class="fa-solid fa-clock"></i></a>
+        <a href="weather.html" title="Clima"><i class="fa-solid fa-cloud-sun"></i></a>
+        <a href="password.html" title="Contraseña"><i class="fa-solid fa-lock"></i></a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button">Modo claro</button>
+      <button id="theme-toggle" class="theme-toggle" type="button"><i class="fa-solid fa-circle-half-stroke"></i> Modo claro</button>
     </header>
 
     <main class="content single-card links-page">
@@ -34,7 +35,7 @@
             URL
             <input id="link-url" type="url" placeholder="https://ejemplo.com" required />
           </label>
-          <button id="add-link" type="submit">Añadir link</button>
+          <button id="add-link" type="submit"><i class="fa-solid fa-plus"></i> Añadir link</button>
         </form>
 
         <div class="links-list">

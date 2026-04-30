@@ -7,7 +7,6 @@ const backgrounds = [
   'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1476019726013-6f4c0e8ba5c9?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1454789476662-53eb53bdf63b?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1500&q=80'
 ];
@@ -34,7 +33,7 @@ function setTheme(theme) {
   document.body.dataset.theme = theme;
   const toggle = document.getElementById('theme-toggle');
   if (toggle) {
-    toggle.textContent = theme === 'dark' ? 'Modo claro' : 'Modo oscuro';
+    toggle.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-circle-half-stroke"></i> Modo claro' : '<i class="fa-solid fa-circle-half-stroke"></i> Modo oscuro';
   }
   localStorage.setItem(themeStorageKey, theme);
   setRandomBackground();

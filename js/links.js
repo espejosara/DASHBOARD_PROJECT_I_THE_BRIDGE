@@ -33,7 +33,7 @@ function renderLinks() {
         <strong>${link.title}</strong>
         <span>${link.url}</span>
       </a>
-      <button type="button" class="delete-link" data-index="${index}">Eliminar</button>
+      <button type="button" class="delete-link" data-index="${index}"><i class="fa-solid fa-trash"></i> Eliminar</button>
     `;
 
     linksList.appendChild(item);

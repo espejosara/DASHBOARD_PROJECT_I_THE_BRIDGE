@@ -6,6 +6,7 @@
   <title>Clima | Dashboard</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <div class="page-shell">
@@ -15,12 +16,12 @@
         <p>Busca una ciudad y obtén el clima actual y las próximas horas.</p>
       </div>
       <nav class="page-nav">
-        <a href="index.html">Dashboard</a>
-        <a href="clock.html">Reloj</a>
-        <a href="password.html">Contraseña</a>
-        <a href="links.html">Links</a>
+        <a href="index.html" title="Dashboard"><i class="fa-solid fa-house"></i></a>
+        <a href="clock.html" title="Reloj"><i class="fa-solid fa-clock"></i></a>
+        <a href="password.html" title="Contraseña"><i class="fa-solid fa-lock"></i></a>
+        <a href="links.html" title="Links"><i class="fa-solid fa-link"></i></a>
       </nav>
-      <button id="theme-toggle" class="theme-toggle" type="button">Modo claro</button>
+      <button id="theme-toggle" class="theme-toggle" type="button"><i class="fa-solid fa-circle-half-stroke"></i> Modo claro</button>
     </header>
 
     <main class="content single-card weather-page">
@@ -30,7 +31,7 @@
             Ciudad
             <input id="city-input" type="text" value="Madrid" placeholder="Escribe una ciudad" />
           </label>
-          <button id="search-weather" type="submit">Buscar clima</button>
+          <button id="search-weather" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar clima</button>
         </form>
 
         <div id="weather-output" class="weather-output">

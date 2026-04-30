@@ -6,6 +6,7 @@
   <title>Dashboard Project</title>
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
   <div class="page-shell">
@@ -14,7 +15,7 @@
         <h1>Dashboard Project</h1>
         <p>Unifica las cuatro mini apps y navega entre ellas.</p>
       </div>
-      <button id="theme-toggle" class="theme-toggle" type="button">Modo claro</button>
+      <button id="theme-toggle" class="theme-toggle" type="button"><i class="fa-solid fa-circle-half-stroke"></i> Modo claro</button>
     </header>
 
     <main class="content dashboard-grid">
@@ -28,7 +29,7 @@
           </div>
         </div>
         <p id="greeting" style="margin-bottom: 15px;">Cargando mensaje...</p>
-        <a class="page-link" href="clock.html">Ir al reloj</a>
+        <a class="page-link" href="clock.html" title="Ir al reloj"><i class="fa-solid fa-clock"></i></a>
       </section>
 
       <section class="card weather-card">
@@ -37,12 +38,12 @@
           <label>Ciudad
             <input id="city-input" type="text" value="Madrid" placeholder="Escribe ciudad" />
           </label>
-          <button id="search-weather" type="submit">Buscar</button>
+          <button id="search-weather" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
         </form>
         <div id="weather-output" class="weather-output" style="margin-bottom: 15px;">
           <p class="muted">Cargando clima...</p>
         </div>
-        <a class="page-link" href="weather.html">Ir al clima</a>
+        <a class="page-link" href="weather.html" title="Ir al clima"><i class="fa-solid fa-cloud-sun"></i></a>
       </section>
 
       <section class="card">
@@ -51,12 +52,12 @@
           <label>Longitud
             <input id="password-length" type="number" min="12" max="50" value="16" />
           </label>
-          <button id="generate-password" type="button">Generar</button>
+          <button id="generate-password" type="button"><i class="fa-solid fa-bolt"></i> Generar</button>
         </div>
         <div class="password-result" style="margin-bottom: 15px;">
           <output id="password-result">Haz clic en generar.</output>
         </div>
-        <a class="page-link" href="password.html">Ir al generador</a>
+        <a class="page-link" href="password.html" title="Ir al generador"><i class="fa-solid fa-lock"></i></a>
       </section>
 
       <section class="card">
@@ -64,13 +65,13 @@
         <form id="link-form" class="form-column" style="margin-bottom: 15px;">
           <input id="link-title" type="text" placeholder="Título del enlace" required />
           <input id="link-url" type="url" placeholder="https://ejemplo.com" required />
-          <button id="add-link" type="submit">Añadir link</button>
+          <button id="add-link" type="submit"><i class="fa-solid fa-plus"></i> Añadir link</button>
         </form>
         <div class="links-list" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto;">
           <p id="empty-state" class="muted">No hay enlaces guardados todavía.</p>
           <ul id="links-list"></ul>
         </div>
-        <a class="page-link" href="links.html">Ir a los links</a>
+        <a class="page-link" href="links.html" title="Ir a los links"><i class="fa-solid fa-link"></i></a>
       </section>
     </main>
   </div>
