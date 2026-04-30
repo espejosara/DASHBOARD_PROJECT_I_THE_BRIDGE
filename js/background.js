@@ -33,7 +33,8 @@ function setTheme(theme) {
   document.body.dataset.theme = theme;
   const toggle = document.getElementById('theme-toggle');
   if (toggle) {
-    toggle.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-circle-half-stroke"></i> Modo claro' : '<i class="fa-solid fa-circle-half-stroke"></i> Modo oscuro';
+    toggle.title = theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
+    toggle.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
   }
   localStorage.setItem(themeStorageKey, theme);
   setRandomBackground();
