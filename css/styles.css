@@ -1,45 +1,39 @@
 :root {
-  --body-bg: #0f2d2f;
-  --shell-bg: rgba(15, 23, 42, 0.84);
-  --surface: rgba(15, 23, 42, 0.95);
+  --body-bg: #0b1c16;
+  --shell-bg: rgba(11, 28, 22, 0.85);
+  --surface: rgba(11, 28, 22, 0.95);
   --surface-strong: rgba(255, 255, 255, 0.08);
-  --border-color: rgba(255, 255, 255, 0.07);
-  --text: #f8fafc;
-  --muted: #bfd2cf;
-  --accent: #7dc4b8;
-  --button-bg: rgba(255, 255, 255, 0.12);
-  --button-text: #f8fafc;
-  --input-bg: rgba(15, 23, 42, 0.9);
-  --card-bg: rgba(15, 23, 42, 0.92);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text: #e2f0e9;
+  --muted: #8ab09c;
+  --accent: #4fb383;
+  --button-bg: #4fb383;
+  --button-text: #05140e;
+  --input-bg: rgba(0, 0, 0, 0.25);
+  --card-bg: rgba(11, 28, 22, 0.9);
   --link-bg: rgba(255, 255, 255, 0.1);
-  --link-hover-bg: rgba(125, 196, 184, 0.95);
+  --link-hover-bg: #4fb383;
+  --link-hover-text: #05140e;
+  --overlay-color: rgba(11, 28, 22, 0.75);
 }
 
 body[data-theme='light'] {
-  --body-bg: #f4efe6;
-  --shell-bg: rgba(255, 255, 255, 0.98);
-  --surface: rgba(255, 255, 255, 0.98);
-  --surface-strong: rgba(15, 23, 42, 0.06);
-  --border-color: rgba(15, 23, 42, 0.08);
-  --text: #1d3938;
-  --muted: #62706d;
-  --accent: #7dc4b8;
-  --button-bg: rgba(29, 57, 56, 0.12);
-  --button-text: #1d3938;
-  --input-bg: rgba(255, 255, 255, 0.92);
-  --card-bg: rgba(255, 255, 255, 0.96);
-  --link-bg: rgba(29, 57, 56, 0.08);
-  --link-hover-bg: rgba(125, 196, 184, 0.95);
-}
-
-body[data-theme='light'] {
-  /* ... tus otras variables (--body-bg, --text, etc.) ... */
-  --overlay-color: rgba(255, 255, 255, 0.32); 
-}
-
-body[data-theme='dark'] {
-  /* ... tus otras variables ... */
-  --overlay-color: rgba(15, 23, 42, 0.75); 
+  --body-bg: #e6ede8;
+  --shell-bg: rgba(255, 255, 255, 0.88);
+  --surface: rgba(255, 255, 255, 0.95);
+  --surface-strong: rgba(43, 89, 63, 0.08);
+  --border-color: rgba(43, 89, 63, 0.15);
+  --text: #193828;
+  --muted: #567d67;
+  --accent: #2e6648;
+  --button-bg: #2e6648;
+  --button-text: #ffffff;
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --link-bg: rgba(46, 102, 72, 0.1);
+  --link-hover-bg: #2e6648;
+  --link-hover-text: #ffffff;
+  --overlay-color: rgba(240, 245, 242, 0.35);
 }
 
 body {
@@ -51,7 +45,6 @@ body {
   align-items: center;
   padding: 24px;
   --bg-image: none; 
-  --overlay-color: rgba(0, 0, 0, 0.5); /* Valor por defecto */
 
   background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), var(--bg-image);
   background-size: cover;
@@ -59,20 +52,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   
-  transition: background-image 1s ease-in-out, background-color 0.3s ease;
-}
-
-
-body {
-  /* Todo el "estilo" se queda aquí */
-  background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  
-  /* La transición suave la controla el CSS */
-  transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out, background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-shell {
@@ -103,7 +83,8 @@ body {
   margin-top: 8px;
 }
 
-.main-nav {
+.main-nav,
+.page-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -116,7 +97,7 @@ body {
   padding: 12px 18px;
   border-radius: 999px;
   background: var(--link-bg);
-  color: var(--button-text);
+  color: var(--text);
   text-decoration: none;
   border: 1px solid transparent;
   transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
@@ -127,6 +108,7 @@ body {
 .page-link:hover,
 .theme-toggle:hover {
   background: var(--link-hover-bg);
+  color: var(--link-hover-text);
   transform: translateY(-1px);
 }
 
@@ -276,7 +258,7 @@ button {
 }
 
 button:hover {
-  background: #4c9f96;
+  filter: brightness(1.1);
   transform: translateY(-1px);
 }
 
@@ -306,7 +288,7 @@ button:hover {
 
 .weather-summary p.muted,
 .muted {
-  color: #cbd5e1;
+  color: var(--muted);
 }
 
 .large-temp {
@@ -329,7 +311,7 @@ button:hover {
 .metric-box strong {
   display: block;
   margin-bottom: 8px;
-  color: #f8fafc;
+  color: var(--text);
 }
 
 .hour-card {
@@ -388,7 +370,7 @@ button:hover {
 }
 
 .link-card span {
-  color: #cbd5e1;
+  color: var(--muted);
   font-size: 0.95rem;
 }
 
