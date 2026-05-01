@@ -12,8 +12,8 @@
   --input-bg: rgba(0, 0, 0, 0.25);
   --card-bg: rgba(11, 28, 22, 0.4);
   --link-bg: rgba(255, 255, 255, 0.1);
-  --link-hover-bg: #4fb383;
-  --link-hover-text: #05140e;
+  --link-hover-bg: #fecaca; /* El mismo rosita suave de la luna */
+  --link-hover-text: #450a0a; /* Texto muy oscuro para contrastar perfectamente */
   --overlay-color: rgba(11, 28, 22, 0.75);
   --theme-icon-color: #fecaca; /* Color rosita suave para el modo oscuro */
 }
@@ -32,8 +32,8 @@ body[data-theme='light'] {
   --input-bg: rgba(255, 255, 255, 0.4);
   --card-bg: rgba(255, 255, 255, 0.5);
   --link-bg: rgba(46, 102, 72, 0.1);
-  --link-hover-bg: #2e6648;
-  --link-hover-text: #ffffff;
+  --link-hover-bg: #f87171; /* El mismo rosita del sol en modo claro */
+  --link-hover-text: #ffffff; /* Texto en blanco para contrastar */
   --overlay-color: rgba(240, 245, 242, 0.35);
   --theme-icon-color: #f87171; /* Rosita un poco más oscuro para contrastar en modo claro */
 }
@@ -54,7 +54,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   
-  transition: background-image 1s ease-in-out, background-color 0.3s ease, color 0.3s ease;
+  transition: background-image 1s ease-in-out;
 }
 
 .page-shell {
@@ -98,13 +98,14 @@ body {
 .page-nav a,
 .page-link,
 .theme-toggle {
+  display: inline-block;
   padding: 12px 18px;
   border-radius: 999px;
   background: var(--link-bg);
   color: var(--text);
   text-decoration: none;
   border: 1px solid transparent;
-  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .main-nav a:hover,
@@ -113,7 +114,15 @@ body {
 .theme-toggle:hover {
   background: var(--link-hover-bg);
   color: var(--link-hover-text);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.main-nav a:active,
+.page-nav a:active,
+.page-link:active,
+.theme-toggle:active {
+  transform: scale(0.92);
 }
 
 .theme-toggle {
@@ -269,13 +278,17 @@ button {
   font-size: 0.95rem;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 button:hover {
   filter: brightness(1.1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px var(--theme-icon-color), 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+button:active {
+  transform: scale(0.92);
 }
 
 .password-result {
