@@ -1,40 +1,40 @@
 :root {
   --body-bg: #0b1c16;
-  --shell-bg: rgba(11, 28, 22, 0.45);
+  --shell-bg: transparent; /* Contenedor principal invisible */
   --surface: rgba(11, 28, 22, 0.3);
-  --surface-strong: rgba(255, 255, 255, 0.15);
-  --border-color: rgba(255, 255, 255, 0.3);
+  --surface-strong: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.15);
   --text: #e2f0e9;
   --muted: #8ab09c;
   --accent: #4fb383;
   --button-bg: #4fb383;
   --button-text: #05140e;
   --input-bg: rgba(0, 0, 0, 0.25);
-  --card-bg: rgba(11, 28, 22, 0.4);
+  --card-bg: rgba(11, 28, 22, 0.35);
   --link-bg: rgba(255, 255, 255, 0.1);
   --link-hover-bg: #fecaca; /* El mismo rosita suave de la luna */
   --link-hover-text: #450a0a; /* Texto muy oscuro para contrastar perfectamente */
-  --overlay-color: rgba(11, 28, 22, 0.75);
+  --overlay-color: rgba(0, 0, 0, 0.3); /* Dejamos brillar más la foto de fondo */
   --theme-icon-color: #fecaca; /* Color rosita suave para el modo oscuro */
 }
 
 body[data-theme='light'] {
   --body-bg: #e6ede8;
-  --shell-bg: rgba(255, 255, 255, 0.55);
+  --shell-bg: transparent; /* Contenedor principal invisible */
   --surface: rgba(255, 255, 255, 0.4);
-  --surface-strong: rgba(255, 255, 255, 0.85);
-  --border-color: rgba(255, 255, 255, 1);
+  --surface-strong: rgba(255, 255, 255, 0.15);
+  --border-color: rgba(255, 255, 255, 0.3);
   --text: #193828;
   --muted: #567d67;
   --accent: #2e6648;
   --button-bg: #2e6648;
   --button-text: #ffffff;
   --input-bg: rgba(255, 255, 255, 0.4);
-  --card-bg: rgba(255, 255, 255, 0.5);
+  --card-bg: rgba(255, 255, 255, 0.25);
   --link-bg: rgba(46, 102, 72, 0.1);
   --link-hover-bg: #f87171; /* El mismo rosita del sol en modo claro */
   --link-hover-text: #ffffff; /* Texto en blanco para contrastar */
-  --overlay-color: rgba(240, 245, 242, 0.35);
+  --overlay-color: rgba(255, 255, 255, 0.1); /* Dejamos brillar más la foto de fondo */
   --theme-icon-color: #f87171; /* Rosita un poco más oscuro para contrastar en modo claro */
 }
 
@@ -67,9 +67,9 @@ p {
   padding: 24px;
   border-radius: 24px;
   background: var(--shell-bg);
-  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.25);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  box-shadow: none; /* Quitamos la sombra gigante */
+  backdrop-filter: none; /* Quitamos el desenfoque general para que la foto se vea nítida */
+  -webkit-backdrop-filter: none;
 }
 
 .page-header {
@@ -165,9 +165,9 @@ p {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   min-height: 220px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(24px); /* Todo el desenfoque va exclusivamente aquí, estilo Apple */
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
 }
@@ -263,7 +263,7 @@ input[type="number"] {
   width: 100%;
   padding: 10px 14px;
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: 16px;
   background: var(--input-bg);
   color: var(--text);
   font-size: 0.95rem;
@@ -281,7 +281,7 @@ input[type="number"]:focus {
 button {
   cursor: pointer;
   border: none;
-  border-radius: 10px;
+  border-radius: 16px;
   padding: 10px 18px;
   background: var(--accent);
   color: var(--button-text);
@@ -309,12 +309,10 @@ button:active {
 .password-result output {
   display: block;
   padding: 16px;
-  border-radius: 16px;
-  background: var(--surface-strong);
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--surface-strong), transparent);
   border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.3);
   color: var(--text);
   word-break: break-all;
 }
@@ -348,12 +346,10 @@ button:active {
 
 .metric-box {
   padding: 14px;
-  border-radius: 18px;
-  background: var(--surface-strong);
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--surface-strong), transparent);
   border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .metric-box strong {
@@ -367,12 +363,10 @@ button:active {
   gap: 10px;
   justify-items: center;
   padding: 16px;
-  border-radius: 18px;
-  background: var(--surface-strong);
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--surface-strong), transparent);
   border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.3);
   min-width: 96px;
 }
 
@@ -406,12 +400,10 @@ button:active {
   align-items: center;
   gap: 16px;
   padding: 16px;
-  border-radius: 18px;
-  background: var(--surface-strong);
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--surface-strong), transparent);
   border: 1px solid var(--border-color);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .link-card a {
