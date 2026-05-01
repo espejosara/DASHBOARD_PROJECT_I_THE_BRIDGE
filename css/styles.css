@@ -226,7 +226,7 @@ p {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -294,7 +294,7 @@ button {
 button:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 0 0 2px var(--theme-icon-color), 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 button:active {
@@ -445,5 +445,9 @@ button:active {
 @media (max-width: 600px) {
   .page-shell {
     padding: 16px;
+  }
+  .card .page-link {
+    width: 100%;
+    text-align: center;
   }
 }
