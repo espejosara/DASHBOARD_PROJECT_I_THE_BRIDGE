@@ -2,7 +2,7 @@ const weatherForm = document.getElementById('weather-form');
 const cityInput = document.getElementById('city-input');
 const weatherOutput = document.getElementById('weather-output');
 
-const apiKey = 'YOUR_API_KEY_HERE';
+const apiKey = 'e1875ec53bcd49aeae595251260105';
 const apiBase = 'https://api.weatherapi.com/v1/forecast.json';
 
 function createHourCard(hourData) {
