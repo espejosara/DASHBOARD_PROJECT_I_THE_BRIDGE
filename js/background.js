@@ -11,9 +11,16 @@ const backgrounds = [
   'https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1500&q=80'
 ];
 
+let currentIndex = -1;
+
 function setRandomBackground() {
-  // 1. Elegimos una imagen al azar de TU LISTA
-  const index = Math.floor(Math.random() * backgrounds.length);
+  // 1. Elegimos una imagen al azar que NUNCA sea la misma que ya está puesta
+  let index;
+  do {
+    index = Math.floor(Math.random() * backgrounds.length);
+  } while (index === currentIndex);
+  currentIndex = index;
+
   const nextUrl = backgrounds[index];
 
   // 2. Técnica de precarga
@@ -37,7 +44,6 @@ function setTheme(theme) {
     toggle.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
   }
   localStorage.setItem(themeStorageKey, theme);
-  setRandomBackground();
 }
 
 function initTheme() {
