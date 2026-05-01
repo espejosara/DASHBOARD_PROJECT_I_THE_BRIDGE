@@ -442,6 +442,17 @@ button:active {
   color: #fecaca;
 }
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.input-error {
+  border-color: #ef4444 !important;
+  animation: shake 0.3s ease-in-out;
+}
+
 @media (max-width: 600px) {
   .page-shell {
     padding: 16px;

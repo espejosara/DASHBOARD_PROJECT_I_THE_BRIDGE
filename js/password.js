@@ -36,6 +36,19 @@ function createPassword(length) {
 
 function handleGeneratePassword() {
   const length = Number(passwordLengthInput.value);
+
+  // Validamos que esté dentro de los límites
+  if (length < 12 || length > 50) {
+    passwordLengthInput.classList.add('input-error');
+    passwordResult.innerHTML = '<span class="error">La longitud debe estar entre 12 y 50.</span>';
+    
+    // Le quitamos la clase tras la animación para que pueda volver a repetirse si vuelve a fallar
+    setTimeout(() => {
+      passwordLengthInput.classList.remove('input-error');
+    }, 300);
+    return; // Detenemos la ejecución aquí
+  }
+
   const password = createPassword(length);
   passwordResult.textContent = password;
 }
