@@ -445,6 +445,51 @@ button:active {
   animation: shake 0.3s ease-in-out;
 }
 
+/* --- ESTILOS DE LOS WIDGETS DEL DASHBOARD --- */
+.widget-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.widget-header h2 {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.widget-header i {
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.widget-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Escondemos magia: ocultamos la información sobrante solo en el Dashboard */
+.widget-card .weather-info-grid,
+.widget-card .forecast-row,
+.widget-card .delete-link {
+  display: none !important; 
+}
+
+/* El diseño bloqueado de las contraseñas */
+.password-mock {
+  text-align: center;
+  padding: 16px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--surface-strong), transparent);
+  border: 1px solid var(--border-color);
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: var(--accent);
+}
+
 @media (max-width: 600px) {
   .page-shell {
     padding: 16px;

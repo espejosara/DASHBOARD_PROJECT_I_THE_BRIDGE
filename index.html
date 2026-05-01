@@ -11,66 +11,62 @@
 <body>
   <div class="page-shell">
     <header class="page-header">
-      <div>
-        <h1>Dashboard Project</h1>
-      </div>
       <button id="theme-toggle" class="theme-toggle" type="button" title="Cambiar tema"><i class="fa-solid fa-sun"></i></button>
     </header>
 
     <main class="content dashboard-grid">
-      <section class="card clock-card">
-        <h2>Reloj digital</h2>
-        <div class="clock-display" style="margin: 15px 0;">
-          <span id="clock">00:00:00</span>
-          <span id="date">DD/MM/AAAA</span>
-          <div class="progress-container">
-            <div id="day-progress-bar"></div>
+      <section class="card widget-card">
+        <div class="widget-header">
+          <h2><i class="fa-solid fa-clock"></i> Reloj</h2>
+        </div>
+        <p class="muted">Controla tu tiempo y progreso del día.</p>
+        <div class="widget-content">
+          <div class="clock-display" style="text-align: center; margin: 0;">
+            <span id="clock" style="font-size: 3rem; display: block; margin-bottom: 4px;">00:00:00</span>
+            <span id="date">DD/MM/AAAA</span>
           </div>
         </div>
-        <p id="greeting" style="margin-bottom: 15px;">Cargando mensaje...</p>
-        <a class="page-link" href="clock.html" title="Ir al reloj"><i class="fa-solid fa-clock"></i></a>
+        <a class="page-link" href="clock.html" title="Abrir reloj">Abrir reloj</a>
       </section>
 
-      <section class="card weather-card">
-        <h2>Estación meteorológica</h2>
-        <form id="weather-form" class="form-row" style="margin-bottom: 15px;">
-          <label>Ciudad
-            <input id="city-input" type="text" value="Madrid" placeholder="Escribe ciudad" />
-          </label>
-          <button id="search-weather" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
-        </form>
-        <div id="weather-output" class="weather-output" style="margin-bottom: 15px;">
-          <p class="muted">Cargando clima...</p>
+      <section class="card widget-card">
+        <div class="widget-header">
+          <h2><i class="fa-solid fa-cloud-sun"></i> Clima</h2>
         </div>
-        <a class="page-link" href="weather.html" title="Ir al clima"><i class="fa-solid fa-cloud-sun"></i></a>
+        <p class="muted">Previsión y estado actual en tu ciudad.</p>
+        <div class="widget-content">
+          <div id="weather-output" class="weather-output">
+            <p class="muted">Cargando clima...</p>
+          </div>
+        </div>
+        <a class="page-link" href="weather.html" title="Abrir clima">Abrir clima</a>
       </section>
 
-      <section class="card">
-        <h2>Generador de contraseñas</h2>
-        <div class="form-row" style="margin-bottom: 15px;">
-          <label>Longitud
-            <input id="password-length" type="number" min="12" max="50" value="16" />
-          </label>
-          <button id="generate-password" type="button"><i class="fa-solid fa-bolt"></i> Generar</button>
+      <section class="card widget-card">
+        <div class="widget-header">
+          <h2><i class="fa-solid fa-shield-halved"></i> Seguridad</h2>
         </div>
-        <div class="password-result" style="margin-bottom: 15px;">
-          <output id="password-result">Haz clic en generar.</output>
+        <p class="muted">Generador de claves robustas y seguras.</p>
+        <div class="widget-content">
+          <div class="password-mock">
+            <span>••••••••••••</span>
+          </div>
         </div>
-        <a class="page-link" href="password.html" title="Ir al generador"><i class="fa-solid fa-lock"></i></a>
+        <a class="page-link" href="password.html" title="Abrir generador">Generar clave</a>
       </section>
 
-      <section class="card">
-        <h2>Listado de links</h2>
-        <form id="link-form" class="form-column" style="margin-bottom: 15px;">
-          <input id="link-title" type="text" placeholder="Título del enlace" required />
-          <input id="link-url" type="url" placeholder="https://ejemplo.com" required />
-          <button id="add-link" type="submit"><i class="fa-solid fa-plus"></i> Añadir link</button>
-        </form>
-        <div class="links-list" style="margin-bottom: 15px; max-height: 200px; overflow-y: auto;">
+      <section class="card widget-card">
+        <div class="widget-header">
+          <h2><i class="fa-solid fa-link"></i> Enlaces</h2>
+        </div>
+        <p class="muted">Tus sitios web favoritos a un clic.</p>
+        <div class="widget-content">
+          <div class="links-list" style="max-height: 130px; overflow-y: auto;">
           <p id="empty-state" class="muted">No hay enlaces guardados todavía.</p>
           <ul id="links-list"></ul>
         </div>
-        <a class="page-link" href="links.html" title="Ir a los links"><i class="fa-solid fa-link"></i></a>
+        </div>
+        <a class="page-link" href="links.html" title="Abrir enlaces">Ver enlaces</a>
       </section>
     </main>
   </div>

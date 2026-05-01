@@ -29,8 +29,8 @@ if (clockElement) {
 
     // 1. Ponemos la hora y fecha en el HTML (usando los ceros a la izquierda)
     clockElement.textContent = `${addLeadingZero(h)}:${addLeadingZero(m)}:${addLeadingZero(s)}`;
-    dateElement.textContent = `${addLeadingZero(now.getDate())}/${addLeadingZero(now.getMonth() + 1)}/${now.getFullYear()}`;
-    greetingElement.textContent = getGreeting(h);
+    if (dateElement) dateElement.textContent = `${addLeadingZero(now.getDate())}/${addLeadingZero(now.getMonth() + 1)}/${now.getFullYear()}`;
+    if (greetingElement) greetingElement.textContent = getGreeting(h);
 
     // 2. Lógica de la Barra de Progreso 
     const totalSecondsInDay = 86400; // Segundos totales en 24h

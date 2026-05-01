@@ -54,14 +54,17 @@ async function searchWeather(city) {
   }
 }
 
-if (weatherForm) {
-  weatherForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const city = cityInput.value.trim() || 'Madrid';
-    searchWeather(city);
-  });
-
-  if (cityInput.value.trim()) {
-    searchWeather(cityInput.value.trim());
+if (weatherOutput) {
+  if (weatherForm) {
+    weatherForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const city = cityInput ? cityInput.value.trim() || 'Madrid' : 'Madrid';
+      searchWeather(city);
+    });
+  }
+  
+  const initialCity = cityInput ? cityInput.value.trim() : 'Madrid';
+  if (initialCity) {
+    searchWeather(initialCity);
   }
 }

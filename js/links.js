@@ -61,12 +61,14 @@ function removeLink(index) {
   renderLinks();
 }
 
-if (linkForm) {
+if (linksList) {
   renderLinks();
-  linkForm.addEventListener('submit', addLink);
   linksList.addEventListener('click', (event) => {
     const button = event.target.closest('.delete-link');
     if (!button) return;
     removeLink(Number(button.dataset.index));
   });
+}
+if (linkForm) {
+  linkForm.addEventListener('submit', addLink);
 }
