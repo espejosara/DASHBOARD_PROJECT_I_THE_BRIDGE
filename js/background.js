@@ -30,6 +30,9 @@ function setRandomBackground() {
   imgPreloader.onload = () => {
     // 3. Aplicamos la imagen a la variable CSS del body
     document.body.style.setProperty('--bg-image', `url('${nextUrl}')`);
+    
+    // 4. Guardamos la URL en la memoria para que la siguiente página la cargue al instante
+    localStorage.setItem('dashboardBg', nextUrl);
   };
 }
 
@@ -61,7 +64,15 @@ function initTheme() {
 
 function initBackground() {
   initTheme();
-  setRandomBackground();
+  
+  // Al entrar en cualquier página, miramos si ya teníamos un fondo guardado del paso anterior
+  const savedBg = localStorage.getItem('dashboardBg');
+  if (savedBg) {
+    document.body.style.setProperty('--bg-image', `url('${savedBg}')`);
+  } else {
+    setRandomBackground(); // Si es la primera vez que entra, generamos uno nuevo
+  }
+
   setInterval(setRandomBackground, 15000);
 }
 
