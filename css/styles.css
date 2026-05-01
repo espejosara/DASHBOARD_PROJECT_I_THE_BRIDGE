@@ -16,6 +16,7 @@
   --link-hover-text: #450a0a; /* Texto muy oscuro para contrastar perfectamente */
   --overlay-color: rgba(0, 0, 0, 0.3); /* Dejamos brillar más la foto de fondo */
   --theme-icon-color: #fecaca; /* Color rosita suave para el modo oscuro */
+  --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Sombra oscura para despegar el texto del fondo */
 }
 
 body[data-theme='light'] {
@@ -34,8 +35,9 @@ body[data-theme='light'] {
   --link-bg: rgba(46, 102, 72, 0.1);
   --link-hover-bg: #f87171; /* El mismo rosita del sol en modo claro */
   --link-hover-text: #ffffff; /* Texto en blanco para contrastar */
-  --overlay-color: rgba(255, 255, 255, 0.1); /* Dejamos brillar más la foto de fondo */
+  --overlay-color: rgba(255, 255, 255, 0.65); /* Aclaramos la imagen de fondo en modo claro */
   --theme-icon-color: #f87171; /* Rosita un poco más oscuro para contrastar en modo claro */
+  --text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9); /* Resplandor blanco para despegar el texto */
 }
 
 body {
@@ -84,11 +86,14 @@ p {
 .page-header h1 {
   font-size: clamp(2rem, 2.5vw, 3rem);
   letter-spacing: -0.04em;
+  text-shadow: var(--text-shadow);
 }
 
 .page-header p {
   color: var(--muted);
   margin-top: 8px;
+  text-shadow: var(--text-shadow);
+  font-weight: 500;
 }
 
 .main-nav,
@@ -108,7 +113,9 @@ p {
   background: var(--link-bg);
   color: var(--text);
   text-decoration: none;
-  border: 1px solid transparent;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
