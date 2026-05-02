@@ -44,7 +44,19 @@ function addLink(event) {
   event.preventDefault();
   const title = titleInput.value.trim();
   const url = urlInput.value.trim();
-  if (!title || !url) return;
+  
+  // Si falta algún dato, hacemos temblar el input correspondiente
+  if (!title || !url) {
+    if (!title) {
+      titleInput.classList.add('input-error');
+      setTimeout(() => titleInput.classList.remove('input-error'), 300);
+    }
+    if (!url) {
+      urlInput.classList.add('input-error');
+      setTimeout(() => urlInput.classList.remove('input-error'), 300);
+    }
+    return;
+  }
 
   const links = getStoredLinks();
   links.push({ title, url });

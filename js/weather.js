@@ -51,6 +51,11 @@ async function searchWeather(city) {
     renderWeather(data);
   } catch (error) {
     weatherOutput.innerHTML = `<p class="error">${error.message}</p>`;
+    // Hacemos temblar el input para avisar al usuario visualmente
+    if (cityInput) {
+      cityInput.classList.add('input-error');
+      setTimeout(() => cityInput.classList.remove('input-error'), 300);
+    }
   }
 }
 

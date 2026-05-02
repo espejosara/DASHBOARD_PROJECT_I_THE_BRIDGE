@@ -2,10 +2,8 @@
 const backgrounds = [
   'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1524777314-0d80b69f4ee6?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1476019726013-6f4c0e8ba5c9?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1454789476662-53eb53bdf63b?auto=format&fit=crop&w=1500&q=80',
   'https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1500&q=80'
