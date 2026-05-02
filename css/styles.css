@@ -97,13 +97,11 @@ p {
 .page-header h1 {
   font-size: clamp(2rem, 2.5vw, 3rem);
   letter-spacing: -0.04em;
-  text-shadow: var(--text-shadow);
 }
 
 .page-header p {
   color: var(--muted);
   margin-top: 8px;
-  text-shadow: var(--text-shadow);
   font-weight: 500;
 }
 
@@ -150,6 +148,7 @@ p {
 .theme-toggle {
   cursor: pointer;
   margin-top: 12px;
+  margin-left: auto; /* Empuja el botón siempre hacia la derecha */
   /* Anulamos el padding heredado para hacerlo un círculo perfecto */
   padding: 0;
   width: 44px;
