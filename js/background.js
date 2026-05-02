@@ -1,12 +1,12 @@
 // Fotos
 const backgrounds = [
-  'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1454789476662-53eb53bdf63b?auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1500&q=80'
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741914/Gemini_Generated_Image_ed6x68ed6x68ed6x_hnqs6p.png",
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741804/Gemini_Generated_Image_qj5j2qj5j2qj5j2q_tltmdi.png",
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741676/Gemini_Generated_Image_63lss563lss563ls_fadlyt.png",
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741612/Gemini_Generated_Image_cgn6nacgn6nacgn6_dbuvcw.png",
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741538/Gemini_Generated_Image_27poe627poe627po_ojn41l.png",
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741394/anime-style-cozy-home-interior-with-furnishings_fdyzv3.jpg",
+  "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741370/3d-rendering-illustration-botanic-garden_vfl6f1.jpg",
 ];
 
 let currentIndex = -1;
@@ -65,7 +65,8 @@ function initBackground() {
   
   // Al entrar en cualquier página, miramos si ya teníamos un fondo guardado del paso anterior
   const savedBg = localStorage.getItem('dashboardBg');
-  if (savedBg) {
+  // Aseguramos que el fondo guardado sigue existiendo en tu nueva lista de Cloudinary
+  if (savedBg && backgrounds.includes(savedBg)) {
     document.body.style.setProperty('--bg-image', `url('${savedBg}')`);
   } else {
     setRandomBackground(); // Si es la primera vez que entra, generamos uno nuevo

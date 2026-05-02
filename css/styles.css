@@ -14,7 +14,7 @@
   --link-bg: rgba(255, 255, 255, 0.1);
   --link-hover-bg: #fecaca; /* El mismo rosita suave de la luna */
   --link-hover-text: #450a0a; /* Texto muy oscuro para contrastar perfectamente */
-  --overlay-color: rgba(0, 0, 0, 0.3); /* Dejamos brillar más la foto de fondo */
+  --overlay-color: rgba(0, 0, 0, 0.65); /* Oscurecemos más la foto en modo noche */
   --theme-icon-color: #fecaca; /* Color rosita suave para el modo oscuro */
   --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Sombra oscura para despegar el texto del fondo */
 }
@@ -35,7 +35,7 @@ body[data-theme='light'] {
   --link-bg: rgba(46, 102, 72, 0.1);
   --link-hover-bg: #f87171; /* El mismo rosita del sol en modo claro */
   --link-hover-text: #ffffff; /* Texto en blanco para contrastar */
-  --overlay-color: rgba(255, 255, 255, 0.65); /* Aclaramos la imagen de fondo en modo claro */
+  --overlay-color: rgba(255, 255, 255, 0.35); /* Bajamos el brillo intenso en modo sol */
   --theme-icon-color: #f87171; /* Rosita un poco más oscuro para contrastar en modo claro */
   --text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9); /* Resplandor blanco para despegar el texto */
 }
@@ -50,13 +50,26 @@ body {
   padding: 24px;
   --bg-image: none; 
 
-  background-image: linear-gradient(var(--overlay-color), var(--overlay-color)), var(--bg-image);
+  background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   
   transition: background-image 1s ease-in-out;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-color);
+  z-index: -1; /* Lo pone justo por encima del fondo pero por debajo de las tarjetas */
+  pointer-events: none; /* Permite hacer clic a través de él */
+  transition: background-color 0.3s ease;
 }
 
 p {
@@ -233,7 +246,7 @@ p {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(2, 280px);
+  grid-template-columns: repeat(auto-fit, 280px);
   gap: 20px;
   justify-content: center;
 }
@@ -501,9 +514,6 @@ button:active {
 @media (max-width: 600px) {
   .page-shell {
     padding: 16px;
-  }
-  .dashboard-grid {
-    grid-template-columns: 1fr;
   }
   .card .page-link {
     width: 100%;
