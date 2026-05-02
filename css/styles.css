@@ -55,8 +55,6 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  
-  transition: background-image 1s ease-in-out;
 }
 
 body::before {

@@ -11,7 +11,7 @@ const backgrounds = [
 
 let currentIndex = -1;
 
-function setRandomBackground() {
+async function setRandomBackground() {
   // 1. Elegimos una imagen al azar que NUNCA sea la misma que ya está puesta
   let index;
   do {
@@ -21,17 +21,23 @@ function setRandomBackground() {
 
   const nextUrl = backgrounds[index];
 
-  // 2. Técnica de precarga
+  // 2. Precarga usando Promesas y Async/Await (Temario Sprint 6)
   const imgPreloader = new Image();
   imgPreloader.src = nextUrl;
 
-  imgPreloader.onload = () => {
-    // 3. Aplicamos la imagen a la variable CSS del body
-    document.body.style.setProperty('--bg-image', `url('${nextUrl}')`);
+  try {
+    // Esperamos pacientemente a que el navegador procese la imagen
+    await imgPreloader.decode();
     
-    // 4. Guardamos la URL en la memoria para que la siguiente página la cargue al instante
+    // 3. Cuando está lista, la aplicamos directamente
+    document.body.style.setProperty('--bg-image', `url('${nextUrl}')`);
     localStorage.setItem('dashboardBg', nextUrl);
-  };
+    
+  } catch (error) {
+    // 4. Manejo de errores: Si la foto no existe (404), la borramos y probamos otra
+    backgrounds.splice(index, 1);
+    if (backgrounds.length > 0) setRandomBackground();
+  }
 }
 
 
