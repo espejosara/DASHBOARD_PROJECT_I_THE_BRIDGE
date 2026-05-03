@@ -544,6 +544,8 @@ button:active {
   .page-nav {
     gap: 8px;
     order: 1;
+    width: 100%;
+    justify-content: center;
   }
   .main-nav a,
   .page-nav a {
