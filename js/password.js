@@ -1,3 +1,4 @@
+/* 1. ELEMENTOS DEL DOM Y CONSTANTES */
 const passwordLengthInput = document.getElementById('password-length');
 const generatePasswordButton = document.getElementById('generate-password');
 const passwordResult = document.getElementById('password-result');
@@ -7,6 +8,7 @@ const lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
 const numbers = '0123456789';
 const symbols = '!@#$%^&*()-_=+';
 
+/* 2. FUNCIONES AUXILIARES */
 function randomFrom(string) {
   return string[Math.floor(Math.random() * string.length)];
 }
@@ -15,6 +17,7 @@ function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
+/* 3. LÓGICA DE GENERACIÓN */
 function createPassword(length) {
   const minLength = 12;
   const maxLength = 50;
@@ -37,22 +40,21 @@ function createPassword(length) {
 function handleGeneratePassword() {
   const length = Number(passwordLengthInput.value);
 
-  // Validamos que esté dentro de los límites
   if (length < 12 || length > 50) {
     passwordLengthInput.classList.add('input-error');
     passwordResult.innerHTML = '<span class="error">La longitud debe estar entre 12 y 50.</span>';
     
-    // Le quitamos la clase tras la animación para que pueda volver a repetirse si vuelve a fallar
     setTimeout(() => {
       passwordLengthInput.classList.remove('input-error');
     }, 300);
-    return; // Detenemos la ejecución aquí
+    return;
   }
 
   const password = createPassword(length);
   passwordResult.textContent = password;
 }
 
+/* 4. INICIALIZACIÓN Y EVENTOS */
 if (generatePasswordButton) {
   generatePasswordButton.addEventListener('click', handleGeneratePassword);
 }

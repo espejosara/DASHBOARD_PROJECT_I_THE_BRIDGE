@@ -1,3 +1,4 @@
+/* 1. ELEMENTOS DEL DOM */
 const clockElement = document.getElementById('clock');
 
 if (clockElement) {
@@ -5,6 +6,7 @@ if (clockElement) {
   const greetingElement = document.getElementById('greeting');
   const progressBar = document.getElementById('day-progress-bar');
 
+  /* 2. FUNCIONES AUXILIARES */
   function addLeadingZero(value) {
     return value.toString().padStart(2, '0');
   }
@@ -19,36 +21,33 @@ if (clockElement) {
     return 'Buenas noches. El sistema necesita un reboot. Mañana será otro gran despliegue.';
   }
 
+  /* 3. LÓGICA PRINCIPAL DEL RELOJ */
   function updateClock() {
     const now = new Date();
     
-    // Guardamos los números brutos para el cálculo matemático de la barra
     const h = now.getHours();
     const m = now.getMinutes();
     const s = now.getSeconds();
 
-    // 1. Ponemos la hora y fecha en el HTML (usando los ceros a la izquierda)
     clockElement.textContent = `${addLeadingZero(h)}:${addLeadingZero(m)}:${addLeadingZero(s)}`;
     if (dateElement) dateElement.textContent = `${addLeadingZero(now.getDate())}/${addLeadingZero(now.getMonth() + 1)}/${now.getFullYear()}`;
     if (greetingElement) greetingElement.textContent = getGreeting(h);
 
-    // 2. Lógica de la Barra de Progreso 
-    const totalSecondsInDay = 86400; // Segundos totales en 24h
+    const totalSecondsInDay = 86400;
     const secondsPassed = (h * 3600) + (m * 60) + s;
     const progressPercent = (secondsPassed / totalSecondsInDay) * 100;
 
-    // Actualizamos la anchura en el CSS
     if (progressBar) {
       progressBar.style.width = `${progressPercent}%`;
     }
   }
 
+  /* 4. INICIALIZACIÓN */
   function initClock() {
     updateClock();
     setInterval(updateClock, 1000);
   }
 
-  // Arrancar el reloj cuando el HTML esté listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initClock);
   } else {

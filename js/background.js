@@ -1,4 +1,5 @@
-// Fotos
+/*
+   1. CONSTANTES Y ESTADO (Fondos) */
 const backgrounds = [
   "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741914/Gemini_Generated_Image_ed6x68ed6x68ed6x_hnqs6p.png",
   "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741804/Gemini_Generated_Image_qj5j2qj5j2qj5j2q_tltmdi.png",
@@ -11,8 +12,9 @@ const backgrounds = [
 
 let currentIndex = -1;
 
+/*
+   2. LÓGICA DE FONDOS ASÍNCRONA */
 async function setRandomBackground() {
-  // 1. Elegimos una imagen al azar que NUNCA sea la misma que ya está puesta
   let index;
   do {
     index = Math.floor(Math.random() * backgrounds.length);
@@ -21,26 +23,23 @@ async function setRandomBackground() {
 
   const nextUrl = backgrounds[index];
 
-  // 2. Precarga usando Promesas y Async/Await (Temario Sprint 6)
   const imgPreloader = new Image();
   imgPreloader.src = nextUrl;
 
   try {
-    // Esperamos pacientemente a que el navegador procese la imagen
     await imgPreloader.decode();
     
-    // 3. Cuando está lista, la aplicamos directamente
     document.body.style.setProperty('--bg-image', `url('${nextUrl}')`);
     localStorage.setItem('dashboardBg', nextUrl);
     
   } catch (error) {
-    // 4. Manejo de errores: Si la foto no existe (404), la borramos y probamos otra
     backgrounds.splice(index, 1);
     if (backgrounds.length > 0) setRandomBackground();
   }
 }
 
-
+/*
+   3. LÓGICA DEL TEMA (Claro/Oscuro) */
 const themeStorageKey = 'dashboardTheme';
 
 function setTheme(theme) {
@@ -66,16 +65,16 @@ function initTheme() {
   }
 }
 
+/*
+   4. INICIALIZACIÓN GLOBAL */
 function initBackground() {
   initTheme();
   
-  // Al entrar en cualquier página, miramos si ya teníamos un fondo guardado del paso anterior
   const savedBg = localStorage.getItem('dashboardBg');
-  // Aseguramos que el fondo guardado sigue existiendo en tu nueva lista de Cloudinary
   if (savedBg && backgrounds.includes(savedBg)) {
     document.body.style.setProperty('--bg-image', `url('${savedBg}')`);
   } else {
-    setRandomBackground(); // Si es la primera vez que entra, generamos uno nuevo
+    setRandomBackground();
   }
 
   setInterval(setRandomBackground, 15000);

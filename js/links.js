@@ -1,3 +1,4 @@
+/* 1. ELEMENTOS DEL DOM Y CONSTANTES */
 const linkForm = document.getElementById('link-form');
 const titleInput = document.getElementById('link-title');
 const urlInput = document.getElementById('link-url');
@@ -6,6 +7,7 @@ const emptyState = document.getElementById('empty-state');
 
 const STORAGE_KEY = 'dashboardLinks';
 
+/* 2. LÓGICA DE ALMACENAMIENTO (LocalStorage) */
 function getStoredLinks() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 }
@@ -14,6 +16,7 @@ function saveLinks(links) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
 }
 
+/* 3. RENDERIZADO DE INTERFAZ (UI) */
 function renderLinks() {
   const links = getStoredLinks();
   linksList.innerHTML = '';
@@ -40,12 +43,12 @@ function renderLinks() {
   });
 }
 
+/* 4. LÓGICA PRINCIPAL (Añadir/Eliminar) */
 function addLink(event) {
   event.preventDefault();
   const title = titleInput.value.trim();
   const url = urlInput.value.trim();
   
-  // Si falta algún dato, hacemos temblar el input correspondiente
   if (!title || !url) {
     if (!title) {
       titleInput.classList.add('input-error');
@@ -73,6 +76,7 @@ function removeLink(index) {
   renderLinks();
 }
 
+/* 5. INICIALIZACIÓN Y EVENTOS */
 if (linksList) {
   renderLinks();
   linksList.addEventListener('click', (event) => {

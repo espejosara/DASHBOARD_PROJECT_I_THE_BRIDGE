@@ -1,6 +1,7 @@
+/* 1. VARIABLES DE TEMA (Modo Oscuro/Claro) */
 :root {
   --body-bg: #0b1c16;
-  --shell-bg: transparent; /* Contenedor principal invisible */
+  --shell-bg: transparent; 
   --surface: rgba(11, 28, 22, 0.3);
   --surface-strong: rgba(255, 255, 255, 0.05);
   --border-color: rgba(255, 255, 255, 0.15);
@@ -12,16 +13,16 @@
   --input-bg: rgba(0, 0, 0, 0.25);
   --card-bg: rgba(11, 28, 22, 0.35);
   --link-bg: rgba(255, 255, 255, 0.1);
-  --link-hover-bg: #fecaca; /* El mismo rosita suave de la luna */
-  --link-hover-text: #450a0a; /* Texto muy oscuro para contrastar perfectamente */
-  --overlay-color: rgba(0, 0, 0, 0.65); /* Oscurecemos más la foto en modo noche */
-  --theme-icon-color: #fecaca; /* Color rosita suave para el modo oscuro */
-  --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8); /* Sombra oscura para despegar el texto del fondo */
+  --link-hover-bg: #fecaca; 
+  --link-hover-text: #450a0a; 
+  --overlay-color: rgba(0, 0, 0, 0.65); 
+  --theme-icon-color: #fecaca; 
+  --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 body[data-theme='light'] {
   --body-bg: #e6ede8;
-  --shell-bg: transparent; /* Contenedor principal invisible */
+  --shell-bg: transparent; 
   --surface: rgba(255, 255, 255, 0.4);
   --surface-strong: rgba(255, 255, 255, 0.15);
   --border-color: rgba(255, 255, 255, 0.3);
@@ -33,21 +34,22 @@ body[data-theme='light'] {
   --input-bg: rgba(255, 255, 255, 0.4);
   --card-bg: rgba(255, 255, 255, 0.25);
   --link-bg: rgba(46, 102, 72, 0.1);
-  --link-hover-bg: #f87171; /* El mismo rosita del sol en modo claro */
-  --link-hover-text: #ffffff; /* Texto en blanco para contrastar */
-  --overlay-color: rgba(255, 255, 255, 0.35); /* Bajamos el brillo intenso en modo sol */
-  --theme-icon-color: #f87171; /* Rosita un poco más oscuro para contrastar en modo claro */
-  --text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9); /* Resplandor blanco para despegar el texto */
+  --link-hover-bg: #f87171; 
+  --link-hover-text: #ffffff; 
+  --overlay-color: rgba(255, 255, 255, 0.35); 
+  --theme-icon-color: #f87171; 
+  --text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9); 
 }
 
+/* 2. ESTILOS BASE Y LAYOUT GENERAL */
 body {
   min-height: 100vh;
   background-color: var(--body-bg);
   color: var(--text);
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Alineamos desde arriba para evitar saltos */
-  padding: 8vh 24px 24px; /* Damos un margen superior fijo (8% de la pantalla) */
+  align-items: flex-start; 
+  padding: 8vh 24px 24px;
   --bg-image: none; 
 
   background-image: var(--bg-image);
@@ -57,6 +59,7 @@ body {
   background-repeat: no-repeat;
 }
 
+
 body::before {
   content: '';
   position: fixed;
@@ -65,8 +68,8 @@ body::before {
   width: 100%;
   height: 100%;
   background-color: var(--overlay-color);
-  z-index: -1; /* Lo pone justo por encima del fondo pero por debajo de las tarjetas */
-  pointer-events: none; /* Permite hacer clic a través de él */
+  z-index: -1;
+  pointer-events: none;
   transition: background-color 0.3s ease;
 }
 
@@ -80,11 +83,12 @@ p {
   padding: 24px;
   border-radius: 24px;
   background: var(--shell-bg);
-  box-shadow: none; /* Quitamos la sombra gigante */
-  backdrop-filter: none; /* Quitamos el desenfoque general para que la foto se vea nítida */
+  box-shadow: none;
+  backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
 
+/* 3. CABECERA Y NAVEGACIÓN */
 .page-header {
   display: flex;
   flex-wrap: wrap;
@@ -149,18 +153,16 @@ p {
   transform: scale(0.92);
 }
 
-/* Estado activo para saber en qué página estamos */
 .page-nav a.active {
   background: var(--link-hover-bg);
   color: var(--link-hover-text);
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4); /* Sombra interior (hundido/sombreado) */
-  transform: scale(0.95); /* Ligeramente más pequeño, como si estuviera presionado */
-  pointer-events: none; /* Desactiva el clic en la página en la que ya estás */
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+  transform: scale(0.95);
+  pointer-events: none;
 }
 
 .theme-toggle {
   cursor: pointer;
-  /* Anulamos el padding heredado para hacerlo un círculo perfecto */
   padding: 0;
   width: 44px;
   height: 44px;
@@ -176,11 +178,11 @@ p {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Transición CSS "al tocarlo" (se hunde y gira un poco) */
 .theme-toggle:active i {
   transform: scale(0.8) rotate(45deg);
 }
 
+/* 4. COMPONENTES (Tarjetas, Formularios, Botones) */
 .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -193,7 +195,7 @@ p {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   min-height: 220px;
-  backdrop-filter: blur(24px); /* Todo el desenfoque va exclusivamente aquí, estilo Apple */
+  backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.2);
   display: flex;
@@ -207,49 +209,7 @@ p {
 
 .card .page-link {
   margin-top: auto;
-  align-self: flex-start; /* Mantiene el botón alineado a la izquierda */
-}
-
-.clock-display {
-  display: grid;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-#clock {
-  font-size: clamp(2rem, 4vw, 4rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-/* El contenedor gris de fondo */
-.progress-container {
-  width: 100%;
-  height: 8px; /* Un pelín más gruesa para que se vea bien */
-  background-color: var(--surface-strong); /* Usamos tu variable de contraste */
-  border-radius: 10px;
-  margin-top: 20px;
-  border: 1px solid var(--border-color); /* Le damos un borde finito */
-  overflow: hidden;
-}
-
-/* La parte de color que se mueve */
-#day-progress-bar {
-  height: 100%;
-  width: 0%; 
-  background-color: var(--accent); /* Usamos tu color verde agua */
-  box-shadow: 0 0 12px var(--accent); /* Un brillo neón */
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Movimiento más fluido */
-}
-
-/* Ajuste para que los textos del reloj se lean bien en ambos modos */
-#date {
-  color: var(--muted); /* En lugar de un color fijo como #cbd5e1 */
-}
-
-#greeting {
-  margin-top: 15px;
-  font-weight: 500;
+  align-self: flex-start;
 }
 
 .dashboard-grid {
@@ -304,7 +264,7 @@ input[type="text"]:focus,
 input[type="url"]:focus,
 input[type="number"]:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(79, 179, 131, 0.2); /* Resplandor suave al hacer clic */
+  box-shadow: 0 0 0 3px rgba(79, 179, 131, 0.2);
 }
 
 button {
@@ -330,6 +290,47 @@ button:active {
   transform: scale(0.92);
 }
 
+/* 5. MÓDULOS ESPECÍFICOS (Reloj, Contraseña, Clima, Links) */
+.clock-display {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+#clock {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: var(--surface-strong);
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+#day-progress-bar {
+  height: 100%;
+  width: 0%; 
+  background-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#date {
+  color: var(--muted);
+}
+
+#greeting {
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/*  CONTRASEÑAS  */
 .password-result {
   display: grid;
   gap: 8px;
@@ -346,6 +347,7 @@ button:active {
   word-break: break-all;
 }
 
+/* CLIMA */
 .weather-output {
   display: grid;
   gap: 20px;
@@ -364,7 +366,7 @@ button:active {
 .large-temp {
   font-size: clamp(2rem, 4vw, 3rem);
   margin: 0;
-  color: var(--text); /* Mantenemos la temperatura principal destacada en blanco/negro */
+  color: var(--text);
 }
 
 .weather-info-grid {
@@ -411,6 +413,7 @@ button:active {
   padding-bottom: 4px;
 }
 
+/*  LINKS  */
 .links-list ul,
 .links-list {
   margin: 0;
@@ -459,6 +462,7 @@ button:active {
   background: rgba(248, 113, 113, 0.95);
 }
 
+/* 6. UTILIDADES Y ANIMACIONES DE ERROR */
 .error {
   color: #fecaca;
 }
@@ -474,7 +478,7 @@ button:active {
   animation: shake 0.3s ease-in-out;
 }
 
-/* --- ESTILOS DE LOS WIDGETS DEL DASHBOARD --- */
+/* 7. ESTILOS DE WIDGETS (Dashboard Principal) */
 .widget-card {
   display: flex;
   flex-direction: column;
@@ -500,14 +504,12 @@ button:active {
   justify-content: center;
 }
 
-/* Escondemos magia: ocultamos la información sobrante solo en el Dashboard */
 .widget-card .weather-info-grid,
 .widget-card .forecast-row,
 .widget-card .delete-link {
   display: none !important; 
 }
 
-/* El diseño bloqueado de las contraseñas */
 .password-mock {
   text-align: center;
   padding: 16px;
@@ -519,12 +521,13 @@ button:active {
   color: var(--accent);
 }
 
+/* 8. MEDIA QUERIES (Responsive) */
 @media (max-width: 600px) {
   .page-shell {
     padding: 16px;
   }
   .dashboard-grid {
-    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    grid-template-columns: 1fr;
   }
   .card .page-link {
     width: 100%;

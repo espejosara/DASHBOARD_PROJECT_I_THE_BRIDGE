@@ -1,3 +1,4 @@
+/* 1. ELEMENTOS DEL DOM Y CONFIGURACIÓN API */
 const weatherForm = document.getElementById('weather-form');
 const cityInput = document.getElementById('city-input');
 const weatherOutput = document.getElementById('weather-output');
@@ -5,6 +6,7 @@ const weatherOutput = document.getElementById('weather-output');
 const apiKey = 'e1875ec53bcd49aeae595251260105';
 const apiBase = 'https://api.weatherapi.com/v1/forecast.json';
 
+/* 2. RENDERIZADO DE INTERFAZ (UI) */
 function createHourCard(hourData) {
   return `
     <div class="hour-card">
@@ -38,6 +40,7 @@ function renderWeather(data) {
   `;
 }
 
+/* 3. LÓGICA DE LA API (Fetch) */
 async function searchWeather(city) {
   weatherOutput.innerHTML = '<p class="muted">Cargando clima...</p>';
 
@@ -51,7 +54,6 @@ async function searchWeather(city) {
     renderWeather(data);
   } catch (error) {
     weatherOutput.innerHTML = `<p class="error">${error.message}</p>`;
-    // Hacemos temblar el input para avisar al usuario visualmente
     if (cityInput) {
       cityInput.classList.add('input-error');
       setTimeout(() => cityInput.classList.remove('input-error'), 300);
@@ -59,6 +61,7 @@ async function searchWeather(city) {
   }
 }
 
+/* 4. INICIALIZACIÓN Y EVENTOS */
 if (weatherOutput) {
   if (weatherForm) {
     weatherForm.addEventListener('submit', (event) => {
