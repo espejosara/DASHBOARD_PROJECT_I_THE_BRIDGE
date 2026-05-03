@@ -531,7 +531,7 @@ button:active {
     padding: 16px;
   }
   .page-header {
-    justify-content: center;
+    justify-content: space-between;
     gap: 16px;
   }
   .page-header > div {
@@ -550,7 +550,7 @@ button:active {
     padding: 10px 14px;
   }
   .theme-toggle {
-    margin-left: 8px; /* Un poco de espacio extra para separarlo del grupo de botones */
+    margin-left: auto;
     order: 2;
   }
   .dashboard-grid {
