@@ -35,7 +35,7 @@ En este proyecto, he adoptado un enfoque de Desarrollo Híbrido:
 - **JavaScript (ES6+):** Lógica modular, asincronía (`async/await`, promesas, `fetch`), manipulación avanzada del DOM y uso de `localStorage`.
 - **APIs Externas:** WeatherAPI (para los datos meteorológicos).
 - **Iconos:** FontAwesome 6.
-- **Gestión de Assets:** Cloudinary (alojamiento y entrega rápida de imágenes de fondo).
+- **Gestión de Assets:** - **Gestión de Assets:** Cloudinary (alojamiento y entrega rápida). Las imágenes de fondo han sido **generadas mediante IA**, diseñadas con un estilo visual inspirado en el *Studio Ghibli* para mantener una estética relajante, acogedora y cohesiva en todo el dashboard.
 - **Asistencia IA:** Gemini (utilizado como *pair-programmer* para brainstorming de lógica, optimización de asincronía y depuración).
 
 
