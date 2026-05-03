@@ -16,7 +16,7 @@ En este proyecto, he adoptado un enfoque de Desarrollo Híbrido:
 2.  **Estación Meteorológica:** Conectada a la API de *WeatherAPI*, permite buscar el clima actual de cualquier ciudad, mostrando temperatura, humedad, viento y pronóstico por horas.
 3.  **Generador de Contraseñas:** Permite crear contraseñas súper seguras eligiendo la longitud (entre 12 y 50 caracteres). Cuenta con validaciones visuales de error.
 4.  **Gestor de Enlaces:** Un listado donde guardar tus sitios web favoritos. Los datos persisten aunque cierres el navegador gracias a `localStorage`.
-5.  **Temas y Fondos Dinámicos:** Sistema de modo claro y oscuro con transiciones instantáneas, y un sistema asíncrono que precarga y cambia imágenes de fondo cada 15 segundos.
+5.  **Temas y Fondos Inteligentes:** Sistema asíncrono de fondos rotativos cada 15s. Detecta automáticamente la preferencia del sistema del usuario (modo claro u oscuro) para su primera visita y permite cambiarlo manualmente guardando la elección en `localStorage`.
 
 
 ##  Decisiones Técnicas Destacadas
@@ -35,7 +35,7 @@ En este proyecto, he adoptado un enfoque de Desarrollo Híbrido:
 - **JavaScript (ES6+):** Lógica modular, asincronía (`async/await`, promesas, `fetch`), manipulación avanzada del DOM y uso de `localStorage`.
 - **APIs Externas:** WeatherAPI (para los datos meteorológicos).
 - **Iconos:** FontAwesome 6.
-- **Gestión de Assets:** - **Gestión de Assets:** Cloudinary (alojamiento y entrega rápida). Las imágenes de fondo han sido **generadas mediante IA**, diseñadas con un estilo visual inspirado en el *Studio Ghibli* para mantener una estética relajante, acogedora y cohesiva en todo el dashboard.
+- **Gestión de Assets:** Cloudinary (alojamiento y entrega rápida). Las imágenes de fondo han sido **generadas mediante IA**, diseñadas con un estilo visual inspirado en el *Studio Ghibli* para mantener una estética relajante, acogedora y cohesiva en todo el dashboard.
 - **Asistencia IA:** Gemini (utilizado como *pair-programmer* para brainstorming de lógica, optimización de asincronía y depuración).
 
 

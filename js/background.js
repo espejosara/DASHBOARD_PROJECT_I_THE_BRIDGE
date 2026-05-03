@@ -1,5 +1,4 @@
-/*
-   1. CONSTANTES Y ESTADO (Fondos) */
+/* 1. CONSTANTES Y ESTADO (Fondos) */
 const backgrounds = [
   "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741914/Gemini_Generated_Image_ed6x68ed6x68ed6x_hnqs6p.png",
   "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741804/Gemini_Generated_Image_qj5j2qj5j2qj5j2q_tltmdi.png",
@@ -12,8 +11,7 @@ const backgrounds = [
 
 let currentIndex = -1;
 
-/*
-   2. LÓGICA DE FONDOS ASÍNCRONA */
+/* 2. LÓGICA DE FONDOS ASÍNCRONA */
 async function setRandomBackground() {
   let index;
   do {
@@ -38,8 +36,7 @@ async function setRandomBackground() {
   }
 }
 
-/*
-   3. LÓGICA DEL TEMA (Claro/Oscuro) */
+/* 3. LÓGICA DEL TEMA (Claro/Oscuro) */
 const themeStorageKey = 'dashboardTheme';
 
 function setTheme(theme) {
@@ -53,7 +50,8 @@ function setTheme(theme) {
 }
 
 function initTheme() {
-  const savedTheme = localStorage.getItem(themeStorageKey) || 'dark';
+  const systemPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  const savedTheme = localStorage.getItem(themeStorageKey) || (systemPrefersLight ? 'light' : 'dark');
   setTheme(savedTheme);
 
   const toggle = document.getElementById('theme-toggle');
@@ -65,8 +63,7 @@ function initTheme() {
   }
 }
 
-/*
-   4. INICIALIZACIÓN GLOBAL */
+/* 4. INICIALIZACIÓN GLOBAL */
 function initBackground() {
   initTheme();
   
