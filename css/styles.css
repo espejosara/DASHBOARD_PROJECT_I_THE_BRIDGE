@@ -46,8 +46,8 @@ body {
   color: var(--text);
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 24px;
+  align-items: flex-start; /* Alineamos desde arriba para evitar saltos */
+  padding: 8vh 24px 24px; /* Damos un margen superior fijo (8% de la pantalla) */
   --bg-image: none; 
 
   background-image: var(--bg-image);
