@@ -15,6 +15,7 @@
   --link-bg: rgba(255, 255, 255, 0.1);
   --link-hover-bg: #fecaca; 
   --link-hover-text: #450a0a; 
+  --link-active-bg: rgba(0, 0, 0, 0.4); /* Color ensombrecido al apretar en modo noche */
   --overlay-color: rgba(0, 0, 0, 0.65); 
   --theme-icon-color: #fecaca; 
   --text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
@@ -36,6 +37,7 @@ body[data-theme='light'] {
   --link-bg: rgba(46, 102, 72, 0.1);
   --link-hover-bg: #f87171; 
   --link-hover-text: #ffffff; 
+  --link-active-bg: rgba(46, 102, 72, 0.3); /* Color ensombrecido al apretar en modo día */
   --overlay-color: rgba(255, 255, 255, 0.35); 
   --theme-icon-color: #f87171; 
   --text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9); 
@@ -44,7 +46,6 @@ body[data-theme='light'] {
 /* 2. ESTILOS BASE Y LAYOUT GENERAL */
 body {
   min-height: 100vh;
-  min-height: 100dvh; 
   background-color: var(--body-bg);
   color: var(--text);
   display: flex;
@@ -52,25 +53,16 @@ body {
   align-items: flex-start; 
   padding: 8vh 24px 24px;
   --bg-image: none; 
+
+  background-image: var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 
 body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -2;
-  pointer-events: none;
-}
-
-body::after {
   content: '';
   position: fixed;
   top: 0;
@@ -161,11 +153,13 @@ p {
 .page-link:active,
 .theme-toggle:active {
   transform: scale(0.92);
+  background: var(--link-active-bg);
+  color: var(--text);
 }
 
 .page-nav a.active {
-  background: var(--link-hover-bg);
-  color: var(--link-hover-text);
+  background: var(--link-active-bg);
+  color: var(--text);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
   transform: scale(0.95);
   pointer-events: none;
@@ -340,7 +334,7 @@ button:active {
   font-weight: 500;
 }
 
-/* CONTRASEÑAS */
+/*  CONTRASEÑAS  */
 .password-result {
   display: grid;
   gap: 8px;
@@ -423,7 +417,7 @@ button:active {
   padding-bottom: 4px;
 }
 
-/* LINKS */
+/*  LINKS  */
 .links-list ul,
 .links-list {
   margin: 0;
@@ -544,17 +538,20 @@ button:active {
     margin-right: 0;
     width: 100%;
     text-align: center;
+    order: 3;
   }
   .main-nav,
   .page-nav {
     gap: 8px;
+    order: 1;
   }
   .main-nav a,
   .page-nav a {
-    padding: 10px 14px; 
+    padding: 10px 14px;
   }
   .theme-toggle {
-    margin-left: 0; 
+    margin-left: 8px; /* Un poco de espacio extra para separarlo del grupo de botones */
+    order: 2;
   }
   .dashboard-grid {
     grid-template-columns: 1fr;

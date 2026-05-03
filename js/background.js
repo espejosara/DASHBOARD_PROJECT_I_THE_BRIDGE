@@ -1,4 +1,4 @@
-/* 1. CONSTANTES Y ESTADO (Fondos) */
+/* 1. FOTOS PARA EL FONDO */
 const backgrounds = [
   "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741914/Gemini_Generated_Image_ed6x68ed6x68ed6x_hnqs6p.png",
   "https://res.cloudinary.com/dm1w4w1o8/image/upload/v1777741804/Gemini_Generated_Image_qj5j2qj5j2qj5j2q_tltmdi.png",
