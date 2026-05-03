@@ -254,7 +254,7 @@ p {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 280px);
+  grid-template-columns: repeat(2, 280px);
   gap: 20px;
   justify-content: center;
 }
@@ -522,6 +522,9 @@ button:active {
 @media (max-width: 600px) {
   .page-shell {
     padding: 16px;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
   }
   .card .page-link {
     width: 100%;
