@@ -526,6 +526,29 @@ button:active {
   .page-shell {
     padding: 16px;
   }
+  .page-header {
+    justify-content: center;
+    gap: 16px;
+  }
+  .page-header > div {
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+    order: 2;
+  }
+  .main-nav,
+  .page-nav {
+    gap: 8px;
+    order: 1;
+  }
+  .main-nav a,
+  .page-nav a {
+    padding: 10px 14px;
+  }
+  .theme-toggle {
+    margin-left: 0;
+    order: 1;
+  }
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
