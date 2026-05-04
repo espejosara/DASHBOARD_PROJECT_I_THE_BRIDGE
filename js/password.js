@@ -1,4 +1,4 @@
-/* 1. ELEMENTOS DEL DOM Y CONSTANTES */
+/* 1. ELEMENTOS DEL DOM */
 const passwordLengthInput = document.getElementById('password-length');
 const generatePasswordButton = document.getElementById('generate-password');
 const passwordResult = document.getElementById('password-result');

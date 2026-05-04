@@ -36,7 +36,7 @@ async function setRandomBackground() {
   }
 }
 
-/* 3. LÓGICA DEL TEMA (Claro/Oscuro) */
+/* 3. CLARO/OSCURO */
 const themeStorageKey = 'dashboardTheme';
 
 function setTheme(theme) {

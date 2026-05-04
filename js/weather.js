@@ -40,7 +40,7 @@ function renderWeather(data) {
   `;
 }
 
-/* 3. LÓGICA DE LA API (Fetch) */
+/* 3. FETCH API */
 async function searchWeather(city) {
   weatherOutput.innerHTML = '<p class="muted">Cargando clima...</p>';
 

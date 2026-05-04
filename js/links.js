@@ -1,4 +1,4 @@
-/* 1. ELEMENTOS DEL DOM Y CONSTANTES */
+/* 1. ELEMENTOS DEL DOM */
 const linkForm = document.getElementById('link-form');
 const titleInput = document.getElementById('link-title');
 const urlInput = document.getElementById('link-url');
@@ -7,7 +7,7 @@ const emptyState = document.getElementById('empty-state');
 
 const STORAGE_KEY = 'dashboardLinks';
 
-/* 2. LÓGICA DE ALMACENAMIENTO (LocalStorage) */
+/* 2. LOCALSTORAGE */
 function getStoredLinks() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 }
@@ -43,7 +43,7 @@ function renderLinks() {
   });
 }
 
-/* 4. LÓGICA PRINCIPAL (Añadir/Eliminar) */
+/* 4. AÑADIR/ELIMINAR */
 function addLink(event) {
   event.preventDefault();
   const title = titleInput.value.trim();
