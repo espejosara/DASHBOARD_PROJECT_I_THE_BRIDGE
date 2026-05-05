@@ -26,6 +26,7 @@ En este proyecto, he adoptado un enfoque de Desarrollo Híbrido:
 - **Rendimiento Visual:** Para mantener la estética neutra y profesional, creé un sistema de precarga asíncrono en memoria (`new Image().decode()`) que garantiza que el fondo solo cambie cuando la nueva imagen está lista, eliminando el molesto "fondo blanco" o parpadeos entre transiciones.
 - **Experiencia de Usuario (UX) Reactiva:** Desarrollé validaciones en tiempo real (como en el generador de contraseñas) combinando manipulación del DOM y animaciones CSS (`@keyframes shake`) para dar feedback visual y táctil inmediato al usuario.
 - **Arquitectura CSS Escalable:** Utilización extensiva de *CSS Custom Properties* (variables) para gestionar la transición fluida entre modos claro y oscuro, y técnicas avanzadas de *Glassmorphism* manteniendo siempre la legibilidad.
+- **Accesibilidad (a11y):** Implementación de HTML semántico y atributos ARIA (`aria-label`, `aria-hidden`) para asegurar que la navegación y los iconos decorativos sean perfectamente interpretados por lectores de pantalla.
 
 
 ##  Tecnologías Utilizadas
