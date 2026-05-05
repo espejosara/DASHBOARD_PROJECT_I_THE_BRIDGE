@@ -514,6 +514,23 @@ button:active {
   display: none !important; 
 }
 
+/* Ajustes de diseño exclusivos para los mini-widgets del dashboard */
+.widget-card .clock-display {
+  text-align: center;
+  margin: 0;
+}
+
+.widget-card #clock {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.widget-card .links-list {
+  max-height: 130px;
+  overflow-y: auto;
+}
+
 .password-mock {
   text-align: center;
   padding: 16px;
