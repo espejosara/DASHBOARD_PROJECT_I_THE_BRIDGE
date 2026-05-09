@@ -5,15 +5,15 @@ const urlInput = document.getElementById('link-url');
 const linksList = document.getElementById('links-list');
 const emptyState = document.getElementById('empty-state');
 
-const STORAGE_KEY = 'dashboardLinks';
+const storageKey = 'dashboardLinks';
 
 /* 2. LOCALSTORAGE */
 function getStoredLinks() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  return JSON.parse(localStorage.getItem(storageKey) || '[]');
 }
 
 function saveLinks(links) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
+  localStorage.setItem(storageKey, JSON.stringify(links));
 }
 
 /* 3. RENDERIZADO DE INTERFAZ (UI) */
