@@ -6,7 +6,7 @@ const weatherOutput = document.getElementById('weather-output');
 const apiKey = 'e1875ec53bcd49aeae595251260105';
 const apiBase = 'https://api.weatherapi.com/v1/forecast.json';
 
-/* 2. RENDERIZADO DE INTERFAZ (UI) */
+/* 2. RENDERIZADO */
 function createHourCard(hourData) {
   return `
     <div class="hour-card">
