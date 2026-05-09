@@ -59,13 +59,13 @@ function handleGeneratePassword() {
 
 function handleCopyPassword() {
   const password = passwordResult.textContent;
-  // Si todavía no hay contraseña generada, no hacemos nada
+  
   if (!password || password === 'Haz clic en generar.') return;
 
   navigator.clipboard.writeText(password).then(() => {
     const icon = copyPasswordButton.querySelector('i');
-    icon.className = 'fa-solid fa-check'; // Cambiamos al icono de "V" (tick)
-    setTimeout(() => icon.className = 'fa-regular fa-copy', 2000); // A los 2 seg vuelve a ser un portapapeles
+    icon.className = 'fa-solid fa-check'; 
+    setTimeout(() => icon.className = 'fa-regular fa-copy', 2000); 
   });
 }
 

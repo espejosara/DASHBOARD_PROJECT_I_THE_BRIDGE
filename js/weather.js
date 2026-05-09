@@ -19,7 +19,7 @@ function createHourCard(hourData) {
 
 function renderWeather(data) {
   const current = data.current;
-  const forecastHours = data.forecast.forecastday[0].hour.slice(0, 6);
+  const forecastHours = data.forecast.forecastday[0].hour.slice(0, 24);
 
   weatherOutput.innerHTML = `
     <div class="weather-summary">
