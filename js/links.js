@@ -16,7 +16,7 @@ function saveLinks(links) {
   localStorage.setItem(storageKey, JSON.stringify(links));
 }
 
-/* 3. RENDERIZADO DE INTERFAZ (UI) */
+/* 3. RENDERIZADO */
 function renderLinks() {
   const links = getStoredLinks();
   linksList.innerHTML = '';
@@ -27,6 +27,7 @@ function renderLinks() {
   }
 
   emptyState.style.display = 'none';
+
   links.forEach((link, index) => {
     const item = document.createElement('li');
     item.className = 'link-card';

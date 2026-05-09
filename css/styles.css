@@ -347,6 +347,46 @@ button:active {
   word-break: break-all;
 }
 
+.result-wrapper {
+  position: relative;
+  display: block;
+}
+
+.result-wrapper output {
+  display: block;
+  width: 100%;
+  padding-right: 52px; /* Espacio extra a la derecha para que el texto no pise el botón */
+  margin: 0;
+}
+
+.copy-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%); /* Centrado vertical matemático perfecto */
+  padding: 0; 
+  width: 36px;
+  height: 36px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--surface-strong); /* Fondo sutil para que parezca integrado en la caja */
+  box-shadow: none; /* Quitamos la sombra fuerte */
+  color: var(--text);
+}
+
+.copy-btn:hover {
+  transform: translateY(-50%) scale(1.05); /* Mantenemos el centrado al hacer hover */
+  background: var(--accent); /* Se ilumina al pasar el ratón */
+  color: var(--button-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.copy-btn:active {
+  transform: translateY(-50%) scale(0.95); /* Mantenemos el centrado al hacer clic */
+}
+
 /* CLIMA */
 .weather-output {
   display: grid;

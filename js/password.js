@@ -1,7 +1,8 @@
-/* 1. ELEMENTOS DEL DOM */
+/* 1. ELEMENTOS DEL DOM Y CONSTANTES */
 const passwordLengthInput = document.getElementById('password-length');
 const generatePasswordButton = document.getElementById('generate-password');
 const passwordResult = document.getElementById('password-result');
+const copyPasswordButton = document.getElementById('copy-password');
 
 const upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
@@ -54,7 +55,24 @@ function handleGeneratePassword() {
   passwordResult.textContent = password;
 }
 
+/* 4. BOTÓN COPIAR CONTRASEÑA */
+
+function handleCopyPassword() {
+  const password = passwordResult.textContent;
+  // Si todavía no hay contraseña generada, no hacemos nada
+  if (!password || password === 'Haz clic en generar.') return;
+
+  navigator.clipboard.writeText(password).then(() => {
+    const icon = copyPasswordButton.querySelector('i');
+    icon.className = 'fa-solid fa-check'; // Cambiamos al icono de "V" (tick)
+    setTimeout(() => icon.className = 'fa-regular fa-copy', 2000); // A los 2 seg vuelve a ser un portapapeles
+  });
+}
+
 /* 4. INICIALIZACIÓN Y EVENTOS */
 if (generatePasswordButton) {
   generatePasswordButton.addEventListener('click', handleGeneratePassword);
+}
+if (copyPasswordButton) {
+  copyPasswordButton.addEventListener('click', handleCopyPassword);
 }
